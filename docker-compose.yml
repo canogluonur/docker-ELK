@@ -33,6 +33,17 @@ services:
       # The password for the 'elastic' user
       - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
       - xpack.security.http.ssl.enabled=false
+      volumes:
+        - ./esdata:/usr/share/elasticsearch/data
+      healthcheck:
+        test:
+          [
+            "CMD-SHELL",
+            "curl --fail http://localhost:9200/_cluster/health || exit 1",
+          ]
+        interval: 30s
+        timeout: 10s
+        retries: 5      
 
   kibana:
     image: docker.elastic.co/kibana/kibana:8.12.1
