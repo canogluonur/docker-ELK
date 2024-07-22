@@ -1,0 +1,28 @@
+apm-server:
+  host: "0.0.0.0:8200"
+  concurrent_requests: 5
+  rum:
+    enabled: true
+
+queue.mem.events: 4096
+max_procs: 4
+
+output.elasticsearch:
+  hosts: ["https://elasticsearch:9200"]
+  username: "elastic"
+  password: "selam12345"
+  ssl.verification_mode: none
+
+
+setup.kibana.host: "kibana:5601"
+setup.dashboards.enabled: true
+setup.template.settings.index.number_of_replicas: 0
+apm-server.kibana.enabled: true
+apm-server.kibana.host: "kibana:5601"
+
+
+#logging.level: info
+#logging.to_files: false
+
+logging.level: debug
+logging.to_files: false
