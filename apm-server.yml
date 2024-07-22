@@ -9,8 +9,8 @@ max_procs: 4
 
 output.elasticsearch:
   hosts: ["https://elasticsearch:9200"]
-  username: "elastic"
-  password: "selam12345"
+  username: "${ELASTIC_USER}"
+  password: "${ELASTIC_PASSWORD}"
   ssl.verification_mode: none
 
 
